@@ -64,10 +64,16 @@
  "re" 'reload-init
 
  "e" 'neotree-project
+ "tt" 'treemacs
+ "tp" 'treemacs-peek-mode
+ "tf" 'treemacs-follow-tag-mode
 
  "gr" 'lsp-ui-peek-find-references
  "lr" 'lsp-rename
- "li" 'lsp-ui-imenu
+ "ls" 'lsp-ui-imenu
+ "li" 'lsp-treemacs-symbols
+ "le" 'lsp-treemacs-errors-list
+ "lt" '(lambda() (interactive)(counsel-M-x "lsp-treemacs-"))
  )
 
 (eem/motion-leader

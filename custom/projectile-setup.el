@@ -6,4 +6,6 @@
 (use-package projectile
   :config
   (projectile-mode +1)
+  :bind-keymap
+  ("C-c p" . projectile-command-map)
 )

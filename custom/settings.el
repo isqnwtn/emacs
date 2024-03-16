@@ -25,7 +25,7 @@
 
 ;; relative line number
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
-(setq display-line-numbers-type 'relative)
+(setq display-line-numbers-type 'absolute)
 
 ;; use escape even within emacs mode
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
