@@ -38,8 +38,13 @@
 			       ("C-w" . lsp-ui-peek-jump-forward)
 			       ("C-s" . lsp-ui-peek-jump-backward)
 			       ))
-  :custom
-  (lsp-ui-doc-position 'bottom))
+  :config
+  (setq lsp-ui-doc-position 'top)
+  ;;(setq lsp-ui-sideline-enable nil)
+  (setq lsp-ui-sideline-show-hover 1)
+  (setq lsp-ui-doc-show-with-cursor 1)
+  (setq lsp-ui-sideline-show-code-actions 1)
+  )
 
 (use-package lsp-treemacs
   :after lsp

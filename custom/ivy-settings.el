@@ -2,7 +2,7 @@
 
 (use-package ivy
   :diminish
-  :bind (("C-s" . swiper)
+  :bind (;;("C-s" . swiper)
 	 :map ivy-minibuffer-map
 	 ("RET" . ivy-alt-done)
 	 ("C-l" . ivy-alt-done)

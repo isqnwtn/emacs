@@ -10,7 +10,9 @@
 
 ;; add melpa to list
 (add-to-list 'package-archives
-'("melpa" . "http://melpa.org/packages/") t)
+	     '(("melpa" . "https://melpa.org/packages/")
+	       ("stablemelpa" . "https://stable.melpa.org/")
+	       ("org" . "https://orgmode.org/elpa/")) t)
 
 ;; initialize package
 (package-initialize)
@@ -57,6 +59,9 @@
 ;; vterm
 (load (expand-file-name "custom/vterm-settings.el" user-emacs-directory))
 
+;; org mode
+(load (expand-file-name "custom/org.el" user-emacs-directory))
+
 ;; general
 (load (expand-file-name "custom/general.el" user-emacs-directory))
 
@@ -68,7 +73,12 @@
 (use-package doom-themes 
   :config (load-theme 'doom-palenight t))
 
-(use-package magit)
+(use-package magit
+  :config
+    (setq magit-display-buffer-function
+	(lambda (buffer)
+	    (display-buffer buffer '(display-buffer-same-window))))
+  )
 
 ;; which key
 (use-package which-key
@@ -85,6 +95,9 @@
 
 (use-package doom-modeline
   :ensure t
+  :config
+    (setq doom-modeline-height 30)
+    (setq doom-modeline-env-version nil)
   :init (doom-modeline-mode 1))
 
 
@@ -105,7 +118,7 @@
  '(custom-safe-themes
    '("5f128efd37c6a87cd4ad8e8b7f2afaba425425524a68133ac0efd87291d05874" "f64189544da6f16bab285747d04a92bd57c7e7813d8c24c30f382f087d460a33" "b5fd9c7429d52190235f2383e47d340d7ff769f141cd8f9e7a4629a81abc6b19" "dccf4a8f1aaf5f24d2ab63af1aa75fd9d535c83377f8e26380162e888be0c6a9" "8c7e832be864674c220f9a9361c851917a93f921fedb7717b1b5ece47690c098" "014cb63097fc7dbda3edf53eb09802237961cbb4c9e9abd705f23b86511b0a69" "dd16800631c492a58d162ef1af43e0c6dac8477937a5b2993a05b720e12fe29e" "9d8a0e9791afb765acdca87000382a98d19f5862ede6b194ea15d61e3cdd55c5" "7e46a3b9eab1cc85e1f5de493844225cec83047a0aa1b129ba4481c0dd5e0881" default))
  '(package-selected-packages
-   '(treemacs-icons-dired treemacs-persp company-box company lsp-ivy lsp-treemacs evil-magit general graphviz-dot-mode multi-vterm haskell-mode magit which-key vterm use-package smex rust-mode projectile perspective neotree modus-themes lsp-ui ivy-rich flx filetree evil-visual-mark-mode evil-collection doom-themes doom-modeline dir-treeview counsel command-log-mode all-the-icons))
+   '(org-autolist org-bullets org-modern org-roam treemacs-icons-dired treemacs-persp company-box company lsp-ivy lsp-treemacs evil-magit general graphviz-dot-mode multi-vterm haskell-mode magit which-key vterm use-package smex rust-mode projectile perspective neotree modus-themes lsp-ui ivy-rich flx filetree evil-visual-mark-mode evil-collection doom-themes doom-modeline dir-treeview counsel command-log-mode all-the-icons))
  '(warning-suppress-types '((with-editor))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

@@ -39,3 +39,7 @@
 
 ;; copy to clipboard and vice versa
 (setq x-select-enable-clipboard t)
+
+;; no git status on modline as its false
+(setq-default mode-line-format
+              (delete '(vc-mode vc-mode) mode-line-format))

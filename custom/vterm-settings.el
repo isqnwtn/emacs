@@ -41,6 +41,7 @@
 	(evil-define-key 'insert vterm-mode-map (kbd "C-g")      #'vterm--self-insert)
 	(evil-define-key 'insert vterm-mode-map (kbd "C-c")      #'vterm--self-insert)
 	(evil-define-key 'insert vterm-mode-map (kbd "C-SPC")    #'vterm--self-insert)
+	(evil-define-key 'insert vterm-mode-map (kbd "<escape>")    #'vterm--self-insert)
 	(evil-define-key 'insert vterm-mode-map (kbd "C-<escape>")    #'evil-normal-state)
 	;; normal mode bindings
 	(evil-define-key 'normal vterm-mode-map (kbd "C-d")      #'vterm--self-insert)
