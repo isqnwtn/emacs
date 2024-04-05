@@ -1,6 +1,8 @@
 ;; org mode stuff
 (use-package org)
 
+(setq org-startup-indented t)
+
 (setq org-todo-keywords
   '(
 (sequence "TODO" "DOING" "|" "DELEGATED" "POSTPONED" "DONE" "CANCELED")
@@ -18,6 +20,9 @@
   :config
   (add-hook 'org-mode-hook #'org-modern-mode)
   (add-hook 'org-agenda-finalize-hook #'org-modern-agenda))
+
+(use-package org-autolist
+  :hook (org-mode . org-autolist-mode))
 
 (setq
  ;; Edit settings

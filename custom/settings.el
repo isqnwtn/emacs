@@ -25,6 +25,7 @@
 
 ;; relative line number
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
+(add-hook 'prog-mode-hook 'origami-mode)
 (setq display-line-numbers-type 'absolute)
 
 ;; use escape even within emacs mode
@@ -43,3 +44,8 @@
 ;; no git status on modline as its false
 (setq-default mode-line-format
               (delete '(vc-mode vc-mode) mode-line-format))
+
+;; auto comment
+(setq fill-column 100)
+(setq comment-auto-fill-only-comments 1)
+(setq-default auto-fill-function 'do-auto-fill)

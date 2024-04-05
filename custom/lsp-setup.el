@@ -7,6 +7,7 @@
   (setq lsp-keymap-prefix "C-c l")
   :hook ((rust-mode . lsp)
 	 (haskell-mode .lsp)
+	 (zig-mode . lsp)
 	 )
   :config
   (lsp-enable-which-key-integration t)
@@ -35,8 +36,8 @@
 (use-package lsp-ui
   :hook (lsp-mode . lsp-ui-mode)
   :bind (:map lsp-ui-peek-mode-map (
-			       ("C-w" . lsp-ui-peek-jump-forward)
-			       ("C-s" . lsp-ui-peek-jump-backward)
+			       ("k" . lsp-ui-peek--select-prev)
+			       ("j" . lsp-ui-peek--select-next)
 			       ))
   :config
   (setq lsp-ui-doc-position 'top)
@@ -44,6 +45,9 @@
   (setq lsp-ui-sideline-show-hover 1)
   (setq lsp-ui-doc-show-with-cursor 1)
   (setq lsp-ui-sideline-show-code-actions 1)
+  ;; both sideline and docs are disabled by default
+  (setq lsp-ui-sideline-mode nil)
+  (setq lsp-ui-doc-mode nil)
   )
 
 (use-package lsp-treemacs
@@ -54,9 +58,14 @@
   )
 
 (use-package lsp-ivy)
+(use-package consult-lsp)
 
-(add-hook 'rust-mode-hook #'lsp)
-(add-hook 'haskell-mode-hook #'lsp)
+;; a few overrides for rust
+(add-hook 'rust-mode-hook (lambda () (interactive)
+			    (setq fill-column 100)
+			    (setq lsp-ui-sideline-show-hover nil)
+			    (setq lsp-ui-doc-show-with-cursor nil)
+			    ))
 
 ;; rust mode
 (use-package rust-mode)
@@ -67,3 +76,5 @@
 ;; dot language
 (use-package graphviz-dot-mode
   :ensure t)
+
+(use-package zig-mode)

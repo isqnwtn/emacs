@@ -75,11 +75,13 @@
  "fd" 'dired
  "ff" 'counsel-find-file
  "fz" 'project-find-file
+ "fw" 'consult-ripgrep
 
  "ot" 'multi-vterm-project
  "om" 'magit
+ "oa" 'yas-insert-snippet
 
- "bl" 'persp-counsel-switch-buffer
+ "bl" 'consult-project-buffer
  "bk" 'persp-remove-buffer
  "bi" 'persp-ibuffer
 
@@ -91,9 +93,16 @@
  "tp" 'treemacs-peek-mode
  "tf" 'treemacs-follow-tag-mode
 
+ "cb" 'consult-bookmark
+ "ci" 'consult-imenu
+
+ "ss" 'consult-lsp-symbols
+ "sf" 'consult-lsp-file-symbols
+ 
  "gr" 'lsp-ui-peek-find-references
  "lr" 'lsp-rename
  "lD" 'lsp-goto-type-definition
+ "ld" 'lsp-goto-type-definition
  "ls" 'lsp-ui-imenu
  "li" 'lsp-treemacs-symbols
  "le" 'lsp-treemacs-errors-list
@@ -101,6 +110,9 @@
  "lmd" 'lsp-ui-doc-mode
  "lms" 'lsp-ui-sideline-mode
 
+ "/"   'consult-line
+
+ "am" 'org-modern-mode
  "al" 'org-roam-buffer-toggle
  "af" 'org-roam-node-find
  "ai" 'org-roam-node-insert
@@ -108,10 +120,17 @@
  "ac" 'org-roam-capture
  "av" 'org-open-at-point
  "ap" '(lambda() (interactive)(counsel-M-x "org-roam-"))
+
+ "jl" 'evil-collection-consult-jump-list
+
+ "zz" 'origami-toggle-node
+ "zo" 'origami-mode
  )
 
 (eem/motion-leader
  "e" 'evil-end-of-line
  "f" 'evil-first-non-blank
  "m" 'evil-jump-item
+ "dc" 'evil-next-close-brace
+ "uc" 'evil-previous-open-brace
  )
